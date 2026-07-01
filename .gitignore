@@ -1,0 +1,33 @@
+.DS_Store
+
+Xcode,
+DerivedData/
+build/
+
+User settings,
+*.xcuserstate
+xcuserdata/
+
+Swift Package Manager,
+.build/
+
+CocoaPods,
+Pods/
+
+Carthage,
+Carthage/Build/
+
+Fastlane,
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/
+
+Logs,
+*.log
+
+Secrets,
+.env
+Secrets.plist
+GoogleService-Info.plist
+*.p12
+*.mobileprovision
