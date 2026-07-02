@@ -9,19 +9,57 @@ import SwiftUI
 import MapKit
 
 struct ListOeuvresView: View {
-    var body: some View {
+    
+    @State private var selectedFilter: TypeArt = .tous
+    
+    var filteredArtists: [Oeuvre] {
         
-        NavigationStack {
-            
-            List(oeuvres) { oeuvre in
-                NavigationLink {
-                    DetailOeuvreView(oeuvre: oeuvre)
-                } label: {
-                    OeuvreRowView(oeuvre: oeuvre)
-                }
-            }.navigationTitle("Liste des street Arts")
+        if selectedFilter == .tous {
+            return oeuvres
         }
         
+        return oeuvres.filter {
+            $0.type == selectedFilter
+        }
+    }
+    
+    var body: some View {
+        ZStack {
+            NavigationStack {
+                List(filteredArtists) { oeuvre in
+                    NavigationLink {
+                        DetailOeuvreView(oeuvre: oeuvre)
+                    } label : {
+                        OeuvreRowView(oeuvre: oeuvre)
+                    }
+                }
+                .navigationTitle("Liste des Street Arts")
+                .toolbar {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Menu {
+                            VStack {
+                                Text("Liste des filtres")
+                                Text("Choisissez une type d'art")
+                                ForEach(TypeArt.allCases) { type in
+                                    Button {
+                                        selectedFilter = type
+                                    } label: {
+                                        if selectedFilter == type {
+                                            Label(type.rawValue, systemImage: "checkmark")
+                                        } else {
+                                            Text(type.rawValue)
+                                        }
+                                    }
+                                }
+                            }
+                        } label: {
+                            Image(systemName: "line.3.horizontal.decrease.circle")
+                                .font(.title2)
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
