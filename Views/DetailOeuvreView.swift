@@ -38,7 +38,7 @@ struct DetailOeuvreView: View {
                 Text("Type :")
                     .bold()
                 
-                Text(oeuvre.type)
+                Text(oeuvre.type.rawValue)
                 
             }.padding(.horizontal, 10)
             

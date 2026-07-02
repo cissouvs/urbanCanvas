@@ -18,7 +18,7 @@ struct OeuvreRowView: View {
                 .scaledToFill()
                 .frame(width: 50, height: 50)
                 .clipShape(Circle())
-                .padding(.horizontal, 10)
+                .padding(.trailing, 5)
             
             VStack(alignment: .leading, spacing: 2) {
                 
