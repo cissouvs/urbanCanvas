@@ -14,37 +14,52 @@ struct ListOeuvresView: View {
     
     @State private var displayMode: String = "Liste"
     
-    var filteredArtists: [Oeuvre] {
+    var filteredOeuvres: [Oeuvre] {
         
         if selectedFilter == .tous {
+            
             return oeuvres
         }
         
         return oeuvres.filter {
+            
             $0.type == selectedFilter
         }
     }
     
     var body: some View {
+        
         ZStack {
+            
             NavigationStack {
-                List(filteredArtists) { oeuvre in
+                
+                List(filteredOeuvres) { oeuvre in
+                    
                     NavigationLink {
+                        
                         DetailOeuvreView(oeuvre: oeuvre)
+                        
                     } label : {
+                        
                         OeuvreRowView(oeuvre: oeuvre)
+                        
                     }
+                    
                 }
+                
                 .navigationTitle("Liste des Street Arts")
                 
-                
                 .toolbar {
+                    
                     ToolbarItem(placement: .topBarTrailing) {
                         
                         Menu {
+                            
                             VStack {
+                                
                                 Text("Liste des filtres")
                                 Text("Choisissez une type d'art")
+                                
                                 ForEach(TypeArt.allCases) { type in
                                     Button {
                                         selectedFilter = type
@@ -62,7 +77,6 @@ struct ListOeuvresView: View {
                                 .font(.title2)
                         }
                     }
-                    
                 }
             }
         }

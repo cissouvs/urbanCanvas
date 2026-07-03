@@ -77,7 +77,7 @@ struct DetailOeuvreView: View {
                 Text("\(oeuvre.localisation) \(oeuvre.city)")
                 
             }.padding(.horizontal, 10)
-                
+            
             Map(position: $cameraPosition) {
                 
                 Marker(coordinate: oeuvre.coordinate) {
@@ -89,14 +89,14 @@ struct DetailOeuvreView: View {
                 
             }
             .onAppear {
-                                    let marseille = oeuvre.coordinate
-                                    let marseilleSpan = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
-                                    let marseilleRegion = MKCoordinateRegion(center: marseille, span: marseilleSpan)
-                                    cameraPosition = .region(marseilleRegion)
-                                } .frame(width : 358, height: 157)
-                                .cornerRadius(26)
-                                .padding(.vertical)
-                                .colorScheme(.dark)
+                let marseille = oeuvre.coordinate
+                let marseilleSpan = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
+                let marseilleRegion = MKCoordinateRegion(center: marseille, span: marseilleSpan)
+                cameraPosition = .region(marseilleRegion)
+            } .frame(width : 358, height: 157)
+                .cornerRadius(26)
+                .padding(.vertical)
+                .colorScheme(.dark)
                 .padding()
                 .clipShape(.rect)
                 .cornerRadius(20)

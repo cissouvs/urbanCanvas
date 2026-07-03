@@ -14,65 +14,68 @@ struct SheetOeuvreDetailView: View {
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
-        VStack(alignment: .leading) {
+        
+        NavigationStack {
             
-            HStack {
+            VStack(alignment: .leading) {
                 
-                Button(action: {
+                HStack {
                     
-                    dismiss()
+                    Button(action: {
+                        
+                        dismiss()
+                        
+                    }) {
+                        
+                        Image(systemName: "xmark.circle.fill")
+                            .foregroundStyle(.secondText)
+                            .font(.largeTitle)
+                            .padding(.horizontal, 10)
+                        
+                    }
                     
-                }) {
+                    Spacer()
                     
-                    Image(systemName: "xmark.circle.fill")
-                        .foregroundStyle(.secondText)
-                        .font(.largeTitle)
+                    Text(oeuvre.name)
+                        .font(.title3)
+                        .foregroundStyle(.mainText)
+                        .bold()
                         .padding(.horizontal, 10)
                     
-                }
-                
-                Spacer()
-                
-                Text(oeuvre.name)
-                    .font(.title3)
-                    .foregroundStyle(.mainText)
-                    .bold()
-                    .padding(.horizontal, 10)
-                
-                Spacer()
-                
-                Button(action: {
+                    Spacer()
                     
-                    DetailOeuvreView(oeuvre: oeuvre)
-                    
-                }) {
-                    
-                    Image(systemName: "arrow.right")
-                        .foregroundStyle(.white)
-                        .font(.title2)
-                        .padding(10)
-                        .background(.mainOrange)
-                        .cornerRadius(100)
-                        .padding()
+                    NavigationLink {
+                        
+                        DetailOeuvreView(oeuvre: oeuvre)
+                        
+                    } label: {
+                        
+                        Image(systemName: "arrow.right")
+                            .foregroundStyle(.white)
+                            .font(.title2)
+                            .padding(10)
+                            .background(.mainOrange)
+                            .cornerRadius(100)
+                            .padding()
+                    }
                     
                 }
+
+                Image(oeuvre.picture)
+                    .resizable()
+                    .scaledToFit()
+                    .ignoresSafeArea()
+                
+                Text(oeuvre.bio)
+                    .padding(10)
+                
+                Spacer()
                 
             }
-            
-            Image(oeuvre.picture)
-                .resizable()
-                .scaledToFit()
-                .ignoresSafeArea()
-                .frame(maxWidth: .infinity)
-            
-            Text(oeuvre.bio)
-                .padding(10)
-            
-            Spacer()
-            
         }
     }
 }
+
 
 #Preview {
     SheetOeuvreDetailView(oeuvre: oeuvres[0])
