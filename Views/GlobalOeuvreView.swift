@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomeView: View {
+struct GlobalOeuvreView: View {
     
     var oeuvre: Oeuvre
     
@@ -61,5 +61,5 @@ struct HomeView: View {
     }    
 }
 #Preview {
-    HomeView(oeuvre: oeuvres[0])
+    GlobalOeuvreView(oeuvre: oeuvres[0])
 }
