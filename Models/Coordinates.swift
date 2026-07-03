@@ -7,13 +7,24 @@
 
 import Foundation
 import CoreLocation
+import MapKit
 
+extension CLLocationCoordinate2D: Hashable {
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(latitude)
+        hasher.combine(longitude)
+    }
+
+    public static func == (lhs: CLLocationCoordinate2D, rhs: CLLocationCoordinate2D) -> Bool {
+        lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
+    }
+}
 extension CLLocationCoordinate2D {
     static let jocondeMarseille: Self = .init(latitude: 43.2965, longitude: 5.3756)
     static let violonchelistaFene: Self = .init(latitude: 43.4735, longitude: -8.1624)
     static let trashTrashureTilburg: Self = .init(latitude: 51.5555, longitude: 5.0913)
     static let coporaLugo: Self = .init(latitude: 43.0125, longitude: -7.5558)
-    static let crepusculoSanNicolas: Self = .init(latitude: -33.3333, longitude: -60.2167)
+    static let crepusculoSanNicolas: Self = .init(latitude: 33.3333, longitude: 6.2167)
     static let donaDoEstuarioNigran: Self = .init(latitude: 42.1415, longitude: -8.8062)
     static let leMurOberkampf408: Self = .init(latitude: 48.8648, longitude: 2.3734)
     static let bobarMarseille: Self = .init(latitude: 43.2964, longitude: 5.3742)

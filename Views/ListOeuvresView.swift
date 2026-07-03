@@ -12,6 +12,8 @@ struct ListOeuvresView: View {
     
     @State private var selectedFilter: TypeArt = .tous
     
+    @State private var displayMode: String = "Liste"
+    
     var filteredArtists: [Oeuvre] {
         
         if selectedFilter == .tous {
@@ -34,8 +36,11 @@ struct ListOeuvresView: View {
                     }
                 }
                 .navigationTitle("Liste des Street Arts")
+                
+                
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
+                        
                         Menu {
                             VStack {
                                 Text("Liste des filtres")
@@ -57,6 +62,7 @@ struct ListOeuvresView: View {
                                 .font(.title2)
                         }
                     }
+                    
                 }
             }
         }

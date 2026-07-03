@@ -8,7 +8,7 @@
 import Foundation
 import CoreLocation
 
-struct Oeuvre: Identifiable {
+struct Oeuvre: Identifiable, Hashable {
     var id = UUID()
     var name: String
     var type: TypeArt
@@ -72,18 +72,18 @@ var oeuvres: [Oeuvre] = [
         date: "2023",
         coordinate: .coporaLugo
     ),
-    Oeuvre(
-        name: "Crepúsculo",
-        type: .mural,
-        condition: "Excellente",
-        auteur: "Martín Ron",
-        localisation: "San Nicolás de los Arroyos",
-        city: "San Nicolás",
-        picture: "crepusculo_sannicolas",
-        bio: "Troisième contribution majeure de l'artiste argentin Martín Ron dans cette région, capturant des reflets et des portraits d'un réalisme saisissant sous les lueurs du crépuscule.",
-        date: "2024",
-        coordinate: .crepusculoSanNicolas
-    ),
+//    Oeuvre(
+//        name: "Crepúsculo",
+//        type: .mural,
+//        condition: "Excellente",
+//        auteur: "Martín Ron",
+//        localisation: "San Nicolás de los Arroyos",
+//        city: "San Nicolás",
+//        picture: "crepusculo_sannicolas",
+//        bio: "Troisième contribution majeure de l'artiste argentin Martín Ron dans cette région, capturant des reflets et des portraits d'un réalisme saisissant sous les lueurs du crépuscule.",
+//        date: "2024",
+//        coordinate: .crepusculoSanNicolas
+//    ),
     Oeuvre(
         name: "PA_278",
         type: .invaders,
