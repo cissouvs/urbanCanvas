@@ -19,7 +19,7 @@ struct ContentView: View {
                 .tabItem {
                     Label("Auteurs", systemImage: "person.circle")
                 }
-
+            
         }
     }
 }

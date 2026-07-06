@@ -43,14 +43,24 @@ struct CardAuthorView: View {
                     .font(.subheadline)
                     .multilineTextAlignment(.center)
                 
-                Text("Site Web")
-                    .foregroundStyle(.white)
-                    .padding(.vertical, 8)
-                    .padding(.horizontal, 30)
-                    .background(.secondOrange)
-                    .cornerRadius(100)
-                    .padding(.top)
-                
+                Button(action: {
+                    
+                    if let url = URL(string: author.url) {
+                        UIApplication.shared.open(url)
+                    }
+                    
+                }) {
+                    
+                    Text("Site Web")
+                        .foregroundStyle(.white)
+                        .padding(.vertical, 8)
+                        .padding(.horizontal, 30)
+                        .background(.secondOrange)
+                        .cornerRadius(100)
+                        .padding(.top)
+                    
+                }
+            
             }
             
         }
