@@ -24,26 +24,23 @@ struct GlobalAuthorView: View {
                 
                 ScrollView(showsIndicators: false) {
                     
-                    LazyVGrid(columns: columns) {
+                    LazyVGrid(columns: columns, spacing: 20) {
                         
                         ForEach(authors) { author in
                             
-                            NavigationLink {
                                 CardAuthorView(author: author)
-                            }
                             
-                            label: {
-                                CardAuthorView(author: author)
                             }
                         }
                     }
-                }
+                .padding(.top, 35)
                 .padding(.horizontal)
+                }
+                
             }
+            
         }
     }
-}
-
 #Preview {
     GlobalAuthorView(author: authors[0])
 }

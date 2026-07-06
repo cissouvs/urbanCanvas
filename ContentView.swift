@@ -13,11 +13,20 @@ struct ContentView: View {
             GlobalOeuvreView(oeuvre: oeuvres[0])
                 .tabItem {
                     Label("Oeuvres", systemImage: "photo.artframe.circle")
+                        .environment(\.symbolVariants, .none)
                 }
+                
 
             GlobalAuthorView(author: authors[0])
                 .tabItem {
                     Label("Auteurs", systemImage: "person.circle")
+                        .environment(\.symbolVariants, .none)
+                }
+            
+            MissionsView(currentTabIndex: 0)
+                .tabItem {
+                    Label("Missions", systemImage: "book")
+                        .environment(\.symbolVariants, .none)
                 }
             
         }
