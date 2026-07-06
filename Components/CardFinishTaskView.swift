@@ -9,125 +9,62 @@ import SwiftUI
 
 struct CardFinishTaskView: View {
     
-    var oeuvre: Oeuvre
-    
     @State var isTouch = false
     
     var body: some View {
         
         NavigationStack {
             
-            ZStack {
+            VStack {
                 
-                VStack {
-                        
-                    Image(systemName: "checkmark.seal")
-                        .foregroundStyle(isTouch ? .white : .black)
-                        .font(.system(size: 14))
-                        .padding(10)
-                        .background(isTouch ? .green : .white)
-                        .cornerRadius(100)
-                        .padding()
+                Image(systemName: "checkmark.seal")
+                    .foregroundStyle(.white)
+                    .font(.system(size: 140))
+                    .padding(10)
+                    .background(.green)
+                    .cornerRadius(100)
+                    .padding()
+                
+                Text("Félicitation !")
+                    .font(.title)
+                    .multilineTextAlignment(.center)
+                    .foregroundStyle(.mainText)
+                    .bold()
+                    .padding(8)
+                
+                Text("Vous avez réussi")
+                    .font(.callout)
+                    .multilineTextAlignment(.leading)
                     
-                    VStack {
+                    NavigationLink {
                         
-                        Text(oeuvre.name)
-                            .font(.title3)
-                            .multilineTextAlignment(.center)
-                            .foregroundStyle(.mainOrange)
-                            .bold()
-                            .padding(8)
+                        MissionsView(currentTabIndex: 0)
                         
-                        HStack {
-                            
-                            Text("Type :")
-                                .font(.subheadline)
-                                .bold()
-                            
-                            Text(oeuvre.type.rawValue)
-                                .font(.subheadline)
-                            
-                        }
+                    } label: {
                         
-                        HStack {
-                            
-                            Text("Artiste :")
-                                .font(.subheadline)
-                                .bold()
-                            
-                            Text(oeuvre.auteur)
-                                .font(.subheadline)
-                            
-                        }
-                        
-                        HStack(alignment: .top) {
-                            
-                            Text("Localisation :")
-                                .font(.subheadline)
-                                .bold()
-                            
-                            VStack {
-                                
-                                Text("\(oeuvre.localisation) \(oeuvre.city)")
-                                    .font(.subheadline)
-                                    .multilineTextAlignment(.leading)
-                                    
-                                
-                            }
-                        }
-                        
-                        HStack {
-                            
-                            Button {
-                                
-                                isTouch.toggle()
-                                
-                            } label: {
-                                
-                                Image(systemName: "checkmark.seal")
-                                    .foregroundStyle(isTouch ? .white : .black)
-                                    .font(.title2)
-                                    .padding(10)
-                                    .background(isTouch ? .green : .white)
-                                    .cornerRadius(100)
-                                    .padding()
-                            }
-                            
-                            Spacer()
-                            
-                            NavigationLink {
-                                
-                                DetailOeuvreView(oeuvre: oeuvre)
-                                
-                            } label: {
-                                
-                                Image(systemName: "arrow.right")
-                                    .foregroundStyle(.white)
-                                    .font(.title2)
-                                    .padding(10)
-                                    .background(.mainOrange)
-                                    .cornerRadius(100)
-                                    .padding()
-                            }
-                            
-                        }
-                        
-                        Spacer()
-                    }
-                    
-                    .frame(width: 250)
+                        Text("Nouvelle mission")
+                            .foregroundStyle(isTouch ? .white : .mainOrange)
+                            .font(.title2)
+                            .padding(10)
+                            .background(isTouch ? .green : .white)
+                            .cornerRadius(100)
+                            .padding()
                     
                 }
                 
+                Spacer()
             }
             .foregroundStyle(.mainText)
             .frame(width: 320, height: 480)
             .background(.backgroundGray)
             .cornerRadius(20)
+            
+            
         }
     }
 }
 
+
 #Preview {
-    CardFinishTaskView(oeuvre: oeuvres[0])
+    CardFinishTaskView()
 }

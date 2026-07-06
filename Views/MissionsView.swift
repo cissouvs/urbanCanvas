@@ -13,8 +13,6 @@ struct MissionsView: View {
     
     @State var discovery: Double = 0
     
-    
-    
     //    func fitleredOeuvres() -> [Oeuvre] {
     //            if let houseFilter {
     //                return students.filter { student in student.house == houseFilter }
@@ -26,6 +24,8 @@ struct MissionsView: View {
     var body: some View {
         
         if discovery == 5 {
+            
+            CardFinishTaskView()
             
         } else {
             
@@ -61,7 +61,7 @@ struct MissionsView: View {
                     
                 }
                 
-                TabView(selection: $currentTabIndex) {
+                TabView {
                     
                     ForEach(oeuvres) { oeuvre in
                         
@@ -81,5 +81,5 @@ struct MissionsView: View {
 
 
 #Preview {
-    MissionsView(currentTabIndex: 0, )
+    MissionsView(currentTabIndex: 0)
 }
