@@ -15,7 +15,7 @@ struct ContentView: View {
                     Label("Oeuvres", systemImage: "photo.artframe.circle")
                 }
 
-            GlobalAuthorView()
+            GlobalAuthorView(author: authors[0])
                 .tabItem {
                     Label("Auteurs", systemImage: "person.circle")
                 }

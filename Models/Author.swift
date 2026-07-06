@@ -10,162 +10,162 @@ import Foundation
 struct Author: Identifiable, Hashable {
     var id = UUID()
     var name: String
-    var origin: String?
-    var age: Int?
-    var style: String?
+    var origin: String
+    var age: String
+    var style: String
     var url: String
     var profilePicture: String
 }
 
-var authors: [String: Author] = [
-    "KAN DMV": Author(
+var authors: [Author] = [
+    Author(
         name: "KAN DMV",
         origin: "France",
-        age: nil,
+        age: "49",
         style: "Pointillisme, Pixel-Art, Graffiti numérique",
         url: "https://www.instagram.com/kan_dmv_street_pointillist/",
         profilePicture: "kan_dmv"
     ),
-    "SFHIR": Author(
+    Author(
         name: "SFHIR",
         origin: "Madrid, Espagne",
-        age: 46,
+        age: "46",
         style: "Hyperréalisme, Intégration architecturale, Anamorphose",
         url: "https://www.instagram.com/sfhir/",
         profilePicture: "sfhir"
     ),
-    "Studio Giftig": Author(
+    Author(
         name: "Studio Giftig",
         origin: "Eindhoven, Pays-Bas",
-        age: nil,
+        age: "57",
         style: "Surréalisme, Photoréalisme hautement détaillé",
         url: "https://www.instagram.com/studiogiftig/?hl=fr",
         profilePicture: "studio_giftig"
     ),
-    "Yoe 33": Author(
+    Author(
         name: "Yoe 33",
         origin: "Lugo, Espagne",
-        age: nil,
+        age: "48",
         style: "Réalisme historique, Figuratif",
         url: "https://www.instagram.com/yoe333/",
         profilePicture: "yoe_33"
     ),
-    "Invader": Author(
+    Author(
         name: "Invader",
         origin: "Paris, France",
-        age: 57,
+        age: "57",
         style: "Pixel-Art, Mosaïque, Culture Geek 8-bit",
         url: "https://www.instagram.com/invaderwashere/?hl=fr",
         profilePicture: "invader"
     ),
-    "Lula Goce": Author(
+    Author(
         name: "Lula Goce",
         origin: "Galice, Espagne",
-        age: nil,
+        age: "41",
         style: "Photoréalisme floral, Nature sauvage et Portraits féminins",
         url: "https://www.instagram.com/lulagoce/?hl=fr",
         profilePicture: "lula_goce"
     ),
-    "MURA": Author(
+    Author(
         name: "MURA",
         origin: "Europe",
-        age: nil,
+        age: "41",
         style: "Art Urbain Contemporain, Abstrait / Lettrage",
         url: "https://murareference.com",
         profilePicture: "no_pictureAuthor"
     ),
-    "Bobar": Author(
+    Author(
         name: "Bobar",
         origin: "Marseille, France",
-        age: nil,
+        age: "41",
         style: "Calligraphie urbaine, Lettrages stylisés complexes",
         url: "https://www.instagram.com/bobar.fr/reels/",
         profilePicture: "bobar"
     ),
-    "D*Face": Author(
+    Author(
         name: "D*Face",
         origin: "Londres, Royaume-Uni",
-        age: 48,
+        age: "48",
         style: "Pop-Art satirique, Pochoir, Graffiti",
         url: "https://www.instagram.com/dface_official/?hl=fr",
         profilePicture: "d_face"
     ),
-    "Conse": Author(
+    Author(
         name: "Conse",
         origin: "Barcelone, Espagne",
-        age: nil,
+        age: "41",
         style: "Réalisme introspectif, Portraits émotionnels",
         url: "https://www.instagram.com/conse.arts/?hl=fr",
         profilePicture: "conse"
     ),
-    "Syro": Author(
+    Author(
         name: "Syro",
         origin: "France",
-        age: nil,
+        age: "41",
         style: "Pochoir satirique, Humour noir",
         url: "https://www.instagram.com/Syro.one/",
         profilePicture: "syro"
     ),
-    "Igor Scalisi Palminteri": Author(
+    Author(
         name: "Igor Scalisi Palminteri",
         origin: "Palerme, Italie",
-        age: nil,
+        age: "41",
         style: "Art sacré contemporain, Peinture murale classique/moderne",
         url: "https://www.instagram.com/igor_scalisipalminteri/",
         profilePicture: "igor_scalisi_palminteri"
     ),
-    "Peachzz": Author(
+    Author(
         name: "Peachzz",
         origin: "Sheffield, Royaume-Uni",
-        age: nil,
+        age: "41",
         style: "Fresques organiques, Palettes douces, Nature et Industrie",
         url: "https://www.instagram.com/_peachzz_/?hl=fr",
         profilePicture: "peachzz"
     ),
-    "Nuno Miles": Author(
+    Author(
         name: "Nuno Miles",
         origin: "Portugal",
-        age: nil,
+        age: "41",
         style: "Figuratif symbolique, Culture locale",
         url: "https://www.instagram.com/NUNOMILES/",
         profilePicture: "nuno_miles"
     ),
-    "Jef Aérosol": Author(
+    Author(
         name: "Jef Aérosol",
         origin: "Nantes / Lille, France",
-        age: 69,
+        age: "69",
         style: "Pochoir (Stencil-Art) noir et blanc (avec flèche rouge iconique)",
         url: "https://www.instagram.com/jefaerosol/?hl=fr",
         profilePicture: "jef_aerosol"
     ),
-    "Paul Watty": Author(
+    Author(
         name: "Paul Watty",
         origin: "Pays-Bas",
-        age: nil,
+        age: "41",
         style: "Art engagé, Environnemental, Réalisme",
         url: "https://www.instagram.com/paul_watty_art/?hl=fr",
         profilePicture: "paul_watty"
     ),
-    "Mosaik_Marseille": Author(
+    Author(
         name: "Mosaik_Marseille",
         origin: "Marseille, France",
-        age: nil,
+        age: "41",
         style: "Mosaïque artisanale, Faïence éclatée, Pixel-Art local",
         url: "https://www.marseille.fr/education/autour-de-lécole/marseille-mosaïque",
         profilePicture: "no_pictureAuthor"
     ),
-    "Ciclope": Author(
+    Author(
         name: "Ciclope",
         origin: "Espagne",
-        age: nil,
+        age: "41",
         style: "Surréalisme poétique, Nature imaginaire",
         url: "https://www.instagram.com/ciclope_arg/?hl=fr",
         profilePicture: "ciclope"
     ),
-    "Kato": Author(
+    Author(
         name: "Kato",
         origin: "Espagne",
-        age: nil,
+        age: "41",
         style: "Réalisme onirique, Effets de lumière",
         url: "https://www.instagram.com/kato.onlineshop/?hl=fr",
         profilePicture: "kato"

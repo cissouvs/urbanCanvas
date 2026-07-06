@@ -8,11 +8,42 @@
 import SwiftUI
 
 struct GlobalAuthorView: View {
+    
+    var columns = [ GridItem(.flexible()), GridItem(.flexible())]
+    
+    var author: Author
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        NavigationStack {
+            
+            ZStack {
+                
+                Color.backgroundGray
+                    .ignoresSafeArea()
+                
+                ScrollView(showsIndicators: false) {
+                    
+                    LazyVGrid(columns: columns) {
+                        
+                        ForEach(authors) { author in
+                            
+                            NavigationLink {
+                                CardAuthorView(author: author)
+                            }
+                            
+                            label: {
+                                CardAuthorView(author: author)
+                            }
+                        }
+                    }
+                }
+                .padding(.horizontal)
+            }
+        }
     }
 }
 
 #Preview {
-    GlobalAuthorView()
+    GlobalAuthorView(author: authors[0])
 }

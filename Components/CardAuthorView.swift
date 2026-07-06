@@ -15,55 +15,55 @@ struct CardAuthorView: View {
         
         ZStack {
             
-            VStack(spacing: 10) {
+            VStack {
                 
-                Image(art.picture)
+                Image(author.profilePicture)
                     .resizable()
                     .scaledToFill()
-                    .frame(width: 80, height: 80)
-                    .clipShape(Circle())
-                    .padding(4)
-                    .background(student.getHouseColor(isDark: false))
+                    .frame(width: 70, height: 70)
+                    .background(.backgroundGray)
                     .cornerRadius(100)
-                    .shadow(radius: 8)
                 
-                Text(student.name)
-                    .font(.system(size: 16))
+                Text(author.name)
+                    .font(.title3)
                     .multilineTextAlignment(.center)
-                    .foregroundStyle(.white)
+                    .foregroundStyle(.mainOrange)
                     .bold()
-                
-                Text(student.house.rawValue.uppercased())
-                    .font(.system(size: 14))
-                    .foregroundStyle(student.getHouseColor(isDark: false))
-                    .padding(.top, -8)
-                
-                
-                Text("\(student.year)e année")
-                    .fontWeight(.semibold)
-                    .font(.system(size: 14))
-                    .foregroundStyle(.white)
                     .padding(8)
-                    .background(Color("\(student.house.rawValue.lowercased())"))
-                    .cornerRadius(8)
+                
+                Text("Age : \(author.age) ans")
+                    .font(.subheadline)
+                    .multilineTextAlignment(.center)
+                
+                Text("Origines : \(author.origin)")
+                    .font(.subheadline)
+                    .multilineTextAlignment(.center)
+                
+                Text("Style : \(author.style)")
+                    .font(.subheadline)
+                    .multilineTextAlignment(.center)
+                
+                Text("Site Web")
+                    .foregroundStyle(.white)
+                    .padding(.vertical, 8)
+                    .padding(.horizontal, 30)
+                    .background(.secondOrange)
+                    .cornerRadius(100)
+                    .padding(.top)
+                
             }
             
         }
         .padding()
-        .foregroundStyle(.encre)
-        .frame(width: 178, height: 205)
-        .background(Color("\(student.house.rawValue.lowercased())").opacity(0.3))
-        .overlay(
-            RoundedRectangle(cornerRadius: 16)
-                .stroke(student.getHouseColor(isDark: true).opacity(0.7), lineWidth: 2)
-        )
-        .cornerRadius(16)
-        .shadow(radius: 8)
+        .foregroundStyle(.mainText)
+        .frame(width: 178, height: 270)
+        .background(.white)
+        .cornerRadius(20)
         
     }
 
 }
 
 #Preview {
-    CardAuthorView()
+    CardAuthorView(author: authors[6])
 }
