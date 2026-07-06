@@ -31,18 +31,39 @@ struct CardAuthorView: View {
                     .bold()
                     .padding(8)
                 
-                Text("Age : \(author.age) ans")
-                    .font(.subheadline)
-                    .multilineTextAlignment(.center)
+                HStack {
+                    
+                    Text("Age :")
+                        .font(.subheadline)
+                        .bold()
+                    
+                    Text("\(author.age) ans")
+                        .font(.subheadline)
+
+                }
                 
-                Text("Origines : \(author.origin)")
-                    .font(.subheadline)
-                    .multilineTextAlignment(.center)
+                HStack {
+                    
+                    Text("Origines :")
+                        .font(.subheadline)
+                        .bold()
+                    
+                    Text(author.origin)
+                        .font(.subheadline)
+
+                }
                 
-                Text("Style : \(author.style)")
-                    .font(.subheadline)
-                    .multilineTextAlignment(.center)
-                
+                HStack {
+                    
+                    Text("Style :")
+                        .font(.subheadline)
+                        .bold()
+                    
+                    Text(author.style)
+                        .font(.subheadline)
+
+                }
+
                 Button(action: {
                     
                     if let url = URL(string: author.url) {
