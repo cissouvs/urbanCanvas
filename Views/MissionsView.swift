@@ -23,57 +23,32 @@ struct MissionsView: View {
     
     var body: some View {
         
-        if discovery == 5 {
+        NavigationStack {
             
-            CardFinishTaskView()
-            
-        } else {
-            
-            VStack {
+            if discovery == 5 {
                 
-                VStack {
-                    if discovery == 0 {
-                        Text ("\(Int(discovery)) sur 5")
-                            .foregroundStyle(.secondary)
+                CardFinishTaskView()
+                
+            } else {
+                
+                VStack(alignment: .center) {
+                    
+                    ProgressView("\(Int(discovery)) sur 5", value: discovery, total: 5.0)
+                    
+                    TabView {
                         
-                    } else if discovery == 1 {
-                        Text ("\(Int(discovery)) sur 5")
-                            .foregroundStyle(.secondary)
-
-                    } else if discovery == 2 {
-                        Text ("\(Int(discovery)) sur 5")
-                            .foregroundStyle(.secondary)
-                        
-                    } else if discovery == 3 {
-                        Text ("\(Int(discovery)) sur 5")
-                            .foregroundStyle(.secondary)
-                        
-                    } else if discovery == 4 {
-                        Text ("\(Int(discovery)) sur 5")
-                            .foregroundStyle(.secondary)
-                        
-                    } else if discovery == 5 {
-                        Text ("\(Int(discovery)) sur 5")
-                            .foregroundStyle(.secondary)
+                        ForEach(oeuvres) { oeuvre in
+                            
+                            CardOeuvreView(oeuvre: oeuvre, value: $discovery)
+                                .tag(oeuvre)
+                            
+                        }
                     }
                     
-                    Slider(value: $discovery, in: 0...5, step: 1)
+                    .tabViewStyle(.page)
+                    .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
                     
                 }
-                
-                TabView {
-                    
-                    ForEach(oeuvres) { oeuvre in
-                        
-                        CardOeuvreView(oeuvre: oeuvre, value: $discovery)
-                            .tag(oeuvre)
-                        
-                    }
-                }
-                
-                .tabViewStyle(.page)
-                .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
-                
             }
         }
     }
